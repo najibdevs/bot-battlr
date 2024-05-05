@@ -1,0 +1,166 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.bot-card {
+  border: 2px solid #ccc;
+  margin-bottom: 20px;
+  width: 24%;
+  box-sizing: border-box;
+  background: white;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 11px;
+  float: left;
+}
+
+.bot-card .bot-card-content p {
+  max-height: 100px; 
+  overflow: hidden; 
+}
+
+.bot-card-content {
+  padding: 20px;
+}
+
+.bot-card img {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.bot-card h3 {
+  margin-top: 10px;
+}
+
+.bot-card p {
+  margin: 5px 0;
+}
+
+.bot-army {
+  background-color: #a6c657;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  clear: both;
+}
+
+.bot-army-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.bot-army-card h3 {
+  margin-top: 0;
+}
+
+.bot-specs {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bot-specs-image {
+  margin-right: 20px;
+}
+
+.bot-specs-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.bot-specs-catchphrase {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.catchphrase{
+  margin: 0;
+}
+
+.bot-specs-stats {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.effect {
+  border: 1px solid #ccc;
+  width: 220px;
+}
+
+.stat {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.bot-specs-stat {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 20px;
+  color: grey;
+}
+
+.bot-specs-class {
+  font-weight: bold;
+}
+
+.bot-specs-stat img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.bot-specs-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.bot-specs-buttons button {
+  margin-bottom: 5px;
+  width: 227px;
+  padding: 9px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-weight: 900;
+  transition: 0.5s;
+}
+
+.bot-specs-buttons button:hover {
+  background: rgb(176, 176, 176);
+}
+
+.sort-bar {
+  margin-bottom: 10px;
+  clear: both;
+}
+
+.filter-bar {
+  margin-bottom: 10px;
+  clear: both;
+}
+
+.clear {
+  clear: both;
+}
