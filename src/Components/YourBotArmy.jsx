@@ -1,4 +1,3 @@
-// YourBotArmy.js
 import React from 'react';
 import BotCard from './BotCard';
 
@@ -9,6 +8,7 @@ const YourBotArmy = ({ enlistedBots, handleReleaseBot, handleDischargeBot }) => 
         <BotCard
           key={`${bot.id}-${bot.name}`}
           bot={bot}
+          isEnlisted={true}
           handleReleaseBot={handleReleaseBot}
           handleDischargeBot={handleDischargeBot}
         />

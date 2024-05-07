@@ -1,7 +1,6 @@
-// BotCard.jsx
 import React from 'react';
 
-const BotCard = ({ bot, isEnlisted }) => {
+const BotCard = ({ bot, isEnlisted, handleReleaseBot, handleDischargeBot }) => {
   return (
     <div className="bot-card">
       <img src={bot.avatar_url} alt={bot.name} />
@@ -25,6 +24,14 @@ const BotCard = ({ bot, isEnlisted }) => {
             </span>
           </div>
         </div>
+        {isEnlisted && (
+          <>
+            <button className='release-btn' onClick={() => handleReleaseBot(bot)}>Release</button>
+            <button className="discharge-btn" onClick={() => handleDischargeBot(bot)}>
+              x
+            </button>
+          </>
+        )}
         {isEnlisted && <span className="enlisted-badge">Enlisted</span>}
       </div>
     </div>

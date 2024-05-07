@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import BotCollection from './Components/BotCollection';
 import YourBotArmy from './Components/YourBotArmy';
 import BotSpecs from './Components/BotSpecs';
+import SortBar from './Components/SortBar';
 import './index.css';
 
 const App = () => {
   const [bots, setBots] = useState([]);
   const [enlistedBots, setEnlistedBots] = useState([]);
   const [filterClass, setFilterClass] = useState('');
+  const [sortCriteria, setSortCriteria] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3000/bots')
@@ -43,7 +45,17 @@ const App = () => {
       .catch((error) => console.error('Error:', error));
   };
 
-  console.log('Filtered bots:', bots);
+  const handleSort = (criteria) => {
+    setSortCriteria(criteria);
+  };
+
+  const sortedBots = sortCriteria
+    ? [...bots].sort((a, b) => (a[sortCriteria] > b[sortCriteria] ? 1 : -1))
+    : bots;
+
+  const filteredBots = filterClass
+    ? sortedBots.filter((bot) => bot.bot_class === filterClass)
+    : sortedBots;
 
   return (
     <Router>
@@ -60,7 +72,11 @@ const App = () => {
         </nav>
         <div className="filter-bar">
           <label htmlFor="filter">Filter by Class:</label>
-          <select id="filter" value={filterClass} onChange={(e) => setFilterClass(e.target.value)}>
+          <select
+            id="filter"
+            value={filterClass}
+            onChange={(e) => setFilterClass(e.target.value)}
+          >
             <option value="">All</option>
             <option value="Support">Support</option>
             <option value="Medic">Medic</option>
@@ -70,6 +86,7 @@ const App = () => {
             <option value="Witch">Witch</option>
           </select>
         </div>
+        <SortBar handleSort={handleSort} />
         <YourBotArmy
           enlistedBots={enlistedBots}
           handleReleaseBot={handleReleaseBot}
@@ -91,7 +108,7 @@ const App = () => {
             path="/"
             element={
               <BotCollection
-                bots={bots}
+                bots={filteredBots}
                 enlistedBots={enlistedBots}
                 handleEnlistBot={handleEnlistBot}
               />

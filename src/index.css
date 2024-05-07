@@ -104,7 +104,13 @@ body {
 
 .effect {
   border: 1px solid #ccc;
-  width: 220px;
+  width: 300px;
+}
+
+.border {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 50%;
 }
 
 .stat {
@@ -136,7 +142,7 @@ body {
   flex-direction: column;
 }
 
-.bot-specs-buttons button {
+.bot-specs-buttons button, .release-btn {
   margin-bottom: 5px;
   width: 227px;
   padding: 9px 20px;
@@ -146,6 +152,8 @@ body {
   font-weight: 900;
   transition: 0.5s;
 }
+
+
 
 .bot-specs-buttons button:hover {
   background: rgb(176, 176, 176);
@@ -163,4 +171,18 @@ body {
 
 .clear {
   clear: both;
+}
+
+.discharge-btn {
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.discharge-btn:hover {
+  transform: scale(1.3);
 }

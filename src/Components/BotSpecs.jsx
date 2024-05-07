@@ -1,6 +1,5 @@
-// BotSpecs.js
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const BotSpecs = ({
   enlistedBots,
@@ -10,6 +9,7 @@ const BotSpecs = ({
 }) => {
   const { botId } = useParams();
   const [bot, setBot] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBotData = async () => {
@@ -18,11 +18,16 @@ const BotSpecs = ({
         const data = await response.json();
         setBot(data);
       } catch (error) {
-        console.error("Error fetching bot data:", error);
+        console.error('Error fetching bot data:', error);
       }
     };
     fetchBotData();
   }, [botId]);
+
+  const handleEnlistAndNavigate = (bot) => {
+    handleEnlistBot(bot);
+    navigate('/');
+  };
 
   if (!bot) {
     return <div>Loading bot details...</div>;
@@ -43,17 +48,17 @@ const BotSpecs = ({
         <div className="bot-specs-stats effect">
           <div className="stat">
             <span>
-              <i className="fa-solid fa-heart-crack" style={{ color: "#ff0000" }}></i> {bot.health}
+              <i className="fa-solid fa-heart-crack border" style={{ color: '#ff0000' }}></i> {bot.health}
             </span>
           </div>
           <div className="stat">
             <span>
-              <i className="fa-solid fa-bolt-lightning" style={{ color: "#FFD43B" }}></i> {bot.damage}
+              <i className="fa-solid fa-bolt-lightning border" style={{ color: '#FFD43B' }}></i> {bot.damage}
             </span>
           </div>
           <div className="stat">
             <span>
-              <i className="fa-solid fa-bolt-lightning" style={{ color: "green" }}></i> {bot.armor}
+              <i className="fas fa-shield-alt border" style={{ color: 'green' }}></i> {bot.armor}
             </span>
           </div>
         </div>
@@ -64,9 +69,8 @@ const BotSpecs = ({
           {enlistedBots.some((b) => b.id === bot.id) ? (
             <button onClick={() => handleReleaseBot(bot)}>Release</button>
           ) : (
-            <button onClick={() => handleEnlistBot(bot)}>Enlist</button>
+            <button onClick={() => handleEnlistAndNavigate(bot)}>Enlist</button>
           )}
-          <button onClick={() => handleDischargeBot(bot)}>Discharge</button>
         </div>
       </div>
     </div>
