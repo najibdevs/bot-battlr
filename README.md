@@ -4,6 +4,10 @@
 
 #### By Najib Iman
 
+## Project Demo
+[Project Video](bot-video.mp4)
+
+
 ## Live Demo
 [Check The Project Right Here](https://bot-battlr-tan.vercel.app/)
 
