@@ -5,7 +5,7 @@
 #### By Najib Iman
 
 ## Project Demo
-[Project Video](bot.mp4)
+[Project Video](bot-video.gif)
 
 
 ## Live Demo
